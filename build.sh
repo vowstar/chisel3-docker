@@ -1,0 +1,2 @@
+
+docker build . --build-arg http_proxy=http://$(ip a s|sed -ne '/127.0.0.1/!{s/^[ \t]*inet[ \t]*\([0-9.]\+\)\/.*$/\1/p}' |grep -m1 .):8080 --build-arg https_proxy=http://$(ip a s|sed -ne '/127.0.0.1/!{s/^[ \t]*inet[ \t]*\([0-9.]\+\)\/.*$/\1/p}' |grep -m1 .):8080 -t chisel:3
